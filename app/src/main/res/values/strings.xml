@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AccountDemo</string>
+    <string name="app_logo">app logo</string>
+    <string name="email_id">Email Id</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="no_account_message">Don\'t have an account?</string>
+    <string name="signup">Signup</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="terms_description">I accept terms and conditions</string>
+    <string name="empty_field">This field is required</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="terms_must_message">Accepting terms and condition is must</string>
+    <string name="invalid_email">Invalid emal id</string>
+    <string name="password_mismatch">Password Mis-match</string>
+</resources>
