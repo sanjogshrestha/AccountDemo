@@ -19,4 +19,10 @@
     <string name="invalid_email">Invalid emal id</string>
     <string name="password_mismatch">Password Mis-match</string>
     <string name="listview">ListView</string>
+    <string name="recycler_view">Recycler View</string>
+    <string name="category">Category</string>
+    <string name="year">Year</string>
+    <string name="add">add</string>
+    <string name="remove">remove</string>
+    <string name="empty_data">We have no data to show</string>
 </resources>

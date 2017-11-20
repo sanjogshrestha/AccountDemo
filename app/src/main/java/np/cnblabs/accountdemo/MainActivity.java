@@ -51,4 +51,8 @@ public class MainActivity extends AppCompatActivity {
     public void showList(View view) {
         startActivity(new Intent(MainActivity.this, ListViewArrayAdapter.class));
     }
+
+    public void showRecyclerView(View view) {
+        startActivity(new Intent(this, RecyclerActivity.class));
+    }
 }
