@@ -1,6 +1,8 @@
 package np.cnblabs.accountdemo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,10 +16,28 @@ public class Login extends AppCompatActivity {
     EditText email_editText, password_editText;
     private String password, email;
 
+    public static final String IS_LOGIN = "is_login";
+    public static final String EMAIL = "email";
+    public static final String MY_PREFERENCE = "myPreference";
+    SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        preferences = this.getSharedPreferences(MY_PREFERENCE, Context.MODE_PRIVATE);
+
+        if(preferences.contains(IS_LOGIN)){
+            boolean isLogin = preferences.getBoolean(IS_LOGIN, false);
+            String loggedEmail = preferences.getString(EMAIL, null);
+            if(isLogin) {
+                if(loggedEmail != null) {
+                    startActivity(new Intent(this, MainActivity.class)
+                            .putExtra("EMAIL", loggedEmail));
+                    finish();
+                }
+            }
+        }
 
         email_textInputLayout = findViewById(R.id.email_textInputLayout);
         password_textInputLayout = findViewById(R.id.password_textInputLayout);
@@ -63,6 +83,15 @@ public class Login extends AppCompatActivity {
         if(!validateEmail()) return;
         if(!validatePassword()) return;
 
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(IS_LOGIN, true);
+        editor.putString(EMAIL , email);
+        editor.apply();
+
         Toast.makeText(this, " You can now login but we have no interface to take you", Toast.LENGTH_SHORT).show();
+
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        mainIntent.putExtra("EMAIL", email);
+        startActivity(mainIntent);
     }
 }

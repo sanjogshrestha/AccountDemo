@@ -18,4 +18,5 @@
     <string name="terms_must_message">Accepting terms and condition is must</string>
     <string name="invalid_email">Invalid emal id</string>
     <string name="password_mismatch">Password Mis-match</string>
+    <string name="listview">ListView</string>
 </resources>

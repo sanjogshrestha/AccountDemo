@@ -20,6 +20,13 @@
         <activity android:name=".SignUp"
             android:parentActivityName=".Login"
             android:label="@string/signup"/>
+
+        <activity android:name=".MainActivity"
+            android:label="@string/app_name"/>
+
+        <activity android:name=".ListViewArrayAdapter"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/listview"/>
     </application>
 
 </manifest>
