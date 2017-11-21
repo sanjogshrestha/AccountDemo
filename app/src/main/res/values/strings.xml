@@ -25,4 +25,9 @@
     <string name="add">add</string>
     <string name="remove">remove</string>
     <string name="empty_data">We have no data to show</string>
+    <string name="download_image_using_async">Download image using async</string>
+    <string name="download_image">download image</string>
+    <string name="json_parsing">Json Parsing(API)</string>
+    <string name="json_api">Json API</string>
+    <string name="picasso">Picasso</string>
 </resources>

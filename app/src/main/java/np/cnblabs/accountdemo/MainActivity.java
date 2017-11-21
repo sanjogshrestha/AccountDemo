@@ -55,4 +55,16 @@ public class MainActivity extends AppCompatActivity {
     public void showRecyclerView(View view) {
         startActivity(new Intent(this, RecyclerActivity.class));
     }
+
+    public void downloadImage(View view) {
+        startActivity(new Intent(this, DownloadImageActivity.class));
+    }
+
+    public void apiCall(View view) {
+        startActivity(new Intent(this, JsonAPI.class));
+    }
+
+    public void showImage(View view) {
+        startActivity(new Intent(this, PicassoImage.class));
+    }
 }

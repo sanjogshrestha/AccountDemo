@@ -30,4 +30,22 @@
         android:layout_height="wrap_content"
         android:text="@string/recycler_view"
         android:onClick="showRecyclerView"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/download_image_using_async"
+        android:onClick="downloadImage"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/json_parsing"
+        android:onClick="apiCall"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/picasso"
+        android:onClick="showImage"/>
 </LinearLayout>
