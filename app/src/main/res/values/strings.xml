@@ -30,4 +30,6 @@
     <string name="json_parsing">Json Parsing(API)</string>
     <string name="json_api">Json API</string>
     <string name="picasso">Picasso</string>
+    <string name="retrofit">Retrofit</string>
+    <string name="Download">download</string>
 </resources>

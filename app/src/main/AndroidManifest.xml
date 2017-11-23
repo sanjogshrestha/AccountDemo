@@ -52,6 +52,11 @@
             android:name=".PicassoImage"
             android:label="@string/picasso"
             android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".RetrofitActivity"
+            android:label="@string/retrofit"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

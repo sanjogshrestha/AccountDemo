@@ -3,7 +3,6 @@ package np.cnblabs.accountdemo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +16,7 @@ import android.widget.Toast;
  * sanjogshrestha.nepal@gmail.com
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     String[] foods = {"apple", "papaya", "mango" , "banana", "coconut", "grapes"};
 
     @Override
@@ -49,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showList(View view) {
-        startActivity(new Intent(MainActivity.this, ListViewArrayAdapter.class));
+        startActivity(this, ListViewArrayAdapter.class);
     }
 
     public void showRecyclerView(View view) {
-        startActivity(new Intent(this, RecyclerActivity.class));
+        startActivity(this, RecyclerActivity.class);
     }
 
     public void downloadImage(View view) {
@@ -66,5 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void showImage(View view) {
         startActivity(new Intent(this, PicassoImage.class));
+    }
+
+    public void callRetrofit(View view) {
+        startActivity(new Intent(this, RetrofitActivity.class));
     }
 }
