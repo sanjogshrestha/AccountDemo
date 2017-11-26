@@ -70,4 +70,8 @@ public class MainActivity extends BaseActivity {
     public void callRetrofit(View view) {
         startActivity(new Intent(this, RetrofitActivity.class));
     }
+
+    public void callRealm(View view) {
+        startActivity(this, RealmActivity.class);
+    }
 }

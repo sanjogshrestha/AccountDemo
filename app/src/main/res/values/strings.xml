@@ -32,4 +32,6 @@
     <string name="picasso">Picasso</string>
     <string name="retrofit">Retrofit</string>
     <string name="Download">download</string>
+    <string name="realm">Realm</string>
+    <string name="name">Name</string>
 </resources>

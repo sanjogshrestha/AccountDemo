@@ -1,4 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+def ANDROID_SUPPORT_VER ="26.1.0"
+def BUTTER_KNIFE ="8.8.1"
 
 android {
     compileSdkVersion 26
@@ -20,16 +24,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VER"
+    implementation "com.android.support:design:$ANDROID_SUPPORT_VER"
+    implementation "com.android.support:recyclerview-v7:$ANDROID_SUPPORT_VER"
+
+    implementation "com.jakewharton:butterknife:$BUTTER_KNIFE"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE"
+
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
