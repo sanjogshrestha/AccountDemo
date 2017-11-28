@@ -16,7 +16,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.Sort;
 import np.cnblabs.accountdemo.adapter.CustomRealmAdapter;
 import np.cnblabs.accountdemo.model.RealmModel;
 import np.cnblabs.accountdemo.realm.RealmMapper;
@@ -82,13 +81,16 @@ public class RealmActivity extends BaseActivity {
     }
 
     private List<RealmModelData> fetchData() {
-        return realm.where(RealmModelData.class).findAllSorted(RealmModelData.NAME, Sort.DESCENDING);
+        return realm.where(RealmModelData.class)
+                .beginsWith(RealmModelData.NAME,"sa")
+                .findAll();
     }
 
     public void addToList(View view) {
         if(!validateName()) return;
         if(!validateEmail()) return;
 
+        System.out.println("count="+ realm.where(RealmModelData.class).count());
         insertIntoRealm();
 
         realmModelDataList = fetchData();

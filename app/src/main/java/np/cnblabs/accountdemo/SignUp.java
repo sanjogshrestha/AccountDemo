@@ -3,10 +3,10 @@ package np.cnblabs.accountdemo;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +15,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import io.realm.Realm;
+import np.cnblabs.accountdemo.model.SignUpModel;
+import np.cnblabs.accountdemo.realm.RealmMapper;
+import np.cnblabs.accountdemo.realm.SignUpModelData;
 
 /**
  * Created by sanjogstha on 11/16/17.
@@ -27,7 +32,6 @@ public class SignUp extends AppCompatActivity{
     TextInputLayout fName_textInputLayout, lName_textInputLayout, email_textInputLayout, password_textInputLayout, cPassword_textInputLayout;
     EditText fName_editText, lName_editText, email_editText, password_editText, cPassword_editText;
 
-    Toolbar mToolbar;
     RadioGroup gender_radioGroup;
     RadioButton male_radioBtn, female_radioBtn;
     CheckBox tc_checkBox;
@@ -35,11 +39,15 @@ public class SignUp extends AppCompatActivity{
     Button signupBtn;
     private String fName, lName, email, password, gender;
 
+    Realm realm;
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        realm = DemoApplication.getDefaultRealm();
 
         fName_textInputLayout = findViewById(R.id.fName_textInputLayout);
         lName_textInputLayout = findViewById(R.id.lName_textInputLayout);
@@ -70,6 +78,13 @@ public class SignUp extends AppCompatActivity{
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(realm != null)
+            realm.close();
+    }
+
     private void validate() {
         if(!validateFirstName()) return;
         if(!validateSecondName()) return;
@@ -77,6 +92,26 @@ public class SignUp extends AppCompatActivity{
         if(!validatePassword()) return;
         if(!validateGender()) return;
         if(!validateTnC()) return;
+
+        SignUpModelData signUpModelData = realm.where(SignUpModelData.class)
+                .equalTo(SignUpModelData.EMAIL_ID, email)
+                .findFirst();
+
+        if(signUpModelData != null){
+            Toast.makeText(this, "This email is already registered", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        final SignUpModel model = new SignUpModel(email, fName, lName,
+                password, gender);
+
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(@NonNull Realm realm) {
+                RealmMapper.toRealm(model, realm);
+            }
+        });
+
         System.out.println("Data=>" + "Name = " + fName + " " + lName + " , Email=" + email +
                 " , Gender = " + gender + " , Password =" + password);
         Toast.makeText(this, "Hurray", Toast.LENGTH_SHORT).show();

@@ -34,4 +34,5 @@
     <string name="Download">download</string>
     <string name="realm">Realm</string>
     <string name="name">Name</string>
+    <string name="logout">Logout</string>
 </resources>

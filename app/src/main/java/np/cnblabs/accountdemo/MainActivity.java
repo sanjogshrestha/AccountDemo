@@ -2,6 +2,7 @@ package np.cnblabs.accountdemo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import io.realm.Realm;
+import np.cnblabs.accountdemo.realm.UserModelData;
 
 /**
  * Created by sanjogstha on 11/19/17.
@@ -19,17 +23,31 @@ import android.widget.Toast;
 public class MainActivity extends BaseActivity {
     String[] foods = {"apple", "papaya", "mango" , "banana", "coconut", "grapes"};
 
+    Realm realm;
+    private UserModelData userModelData;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        realm = DemoApplication.getDefaultRealm();
+
         TextView titleTV = findViewById(R.id.titleTV);
         Spinner spinner = findViewById(R.id.spinner);
 
-        Intent intent = getIntent();
-        String email = intent.getStringExtra("EMAIL");
-        titleTV.setText(email);
+       /* Intent intent = getIntent();
+        String email = intent.getStringExtra("EMAIL");*/
+
+        userModelData = realm.where(UserModelData.class).findFirst();
+
+        if(userModelData == null){
+            startActivity(new Intent(this, Login.class));
+            finish();
+            return;
+        }
+
+        titleTV.setText(userModelData.getEmail());
 
         /*Start of Spinner*/
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.custom_view, foods);
@@ -73,5 +91,16 @@ public class MainActivity extends BaseActivity {
 
     public void callRealm(View view) {
         startActivity(this, RealmActivity.class);
+    }
+
+    public void logout(View view) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(@NonNull Realm realm) {
+                userModelData.deleteFromRealm();
+                finish();
+                startActivity(new Intent(MainActivity.this, Login.class));
+            }
+        });
     }
 }
