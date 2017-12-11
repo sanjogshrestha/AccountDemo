@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
 
         UserModelData userModelData = realm.where(UserModelData.class).findFirst();
         if(userModelData != null && userModelData.isValid()){
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, NavigationActivity.class));
             finish();
         }
 
@@ -131,6 +131,6 @@ public class Login extends AppCompatActivity {
 
         //Toast.makeText(this, " You can now login but we have no interface to take you", Toast.LENGTH_SHORT).show();
 
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, NavigationActivity.class));
     }
 }

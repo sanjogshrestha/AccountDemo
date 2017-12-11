@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/listGroup">
+        <item
+            android:id="@+id/listView"
+            android:icon="@drawable/ic_list"
+            android:title="@string/listview" />
+        <item
+            android:id="@+id/recyclerView"
+            android:icon="@drawable/ic_list"
+            android:title="@string/recycler_view" />
+    </group>
+
+    <item
+        android:title="@string/network">
+        <menu>
+            <item
+                android:id="@+id/async"
+                android:icon="@drawable/ic_internet"
+                android:title="@string/download_image_using_async" />
+            <item
+                android:id="@+id/json"
+                android:icon="@drawable/ic_internet"
+                android:title="@string/json_parsing" />
+
+            <item
+                android:id="@+id/picasso"
+                android:title="@string/picasso"
+                android:icon="@drawable/ic_internet"/>
+
+           <item
+               android:id="@+id/retrofit"
+               android:icon="@drawable/ic_internet"
+               android:title="@string/retrofit"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="@string/Database">
+        <menu>
+            <item
+                android:id="@+id/realm"
+                android:title="@string/realm"
+                android:icon="@drawable/ic_database"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="@string/ui">
+        <menu>
+            <item
+                android:id="@+id/spinner"
+                android:title="@string/spinner"
+                android:icon="@drawable/ic_ui"/>
+        </menu>
+    </item>
+
+   <group android:id="@+id/logoutGroup">
+       <item
+           android:id="@+id/logout"
+           android:title="@string/logout"
+           android:icon="@android:drawable/ic_lock_lock"/>
+   </group>
+
+</menu>

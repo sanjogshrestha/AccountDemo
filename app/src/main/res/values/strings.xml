@@ -35,4 +35,14 @@
     <string name="realm">Realm</string>
     <string name="name">Name</string>
     <string name="logout">Logout</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="Database">Database</string>
+    <string name="ui">UI</string>
+    <string name="spinner">Spinner</string>
+    <string name="network">Network</string>
 </resources>

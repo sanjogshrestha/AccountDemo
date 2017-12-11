@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="np.cnblabs.accountdemo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".DemoApplication"
@@ -12,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,47 +24,52 @@
 
         <activity
             android:name=".SignUp"
-            android:parentActivityName=".Login"
-            android:label="@string/signup"/>
+            android:label="@string/signup"
+            android:parentActivityName=".Login" />
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"/>
+            android:name=".SpinnerActivity"
+            android:label="@string/app_name" />
 
         <activity
             android:name=".ListViewArrayAdapter"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/listview"/>
+            android:label="@string/listview"
+            android:parentActivityName=".NavigationActivity" />
 
         <activity
             android:name=".RecyclerActivity"
             android:label="@string/recycler_view"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".NavigationActivity" />
 
         <activity
             android:name=".DownloadImageActivity"
             android:label="@string/download_image_using_async"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".NavigationActivity" />
 
         <activity
             android:name=".JsonAPI"
             android:label="@string/json_api"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".NavigationActivity" />
 
         <activity
             android:name=".PicassoImage"
             android:label="@string/picasso"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".NavigationActivity" />
 
         <activity
             android:name=".RetrofitActivity"
             android:label="@string/retrofit"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".NavigationActivity" />
 
         <activity
             android:name=".RealmActivity"
             android:label="@string/realm"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".NavigationActivity" />
+
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
