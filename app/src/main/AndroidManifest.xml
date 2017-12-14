@@ -70,6 +70,12 @@
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".ViewPagerActivity"
+            android:label="@string/view_pager"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".NavigationActivity"/>
     </application>
 
 </manifest>
