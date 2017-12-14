@@ -56,6 +56,11 @@
                 android:id="@+id/spinner"
                 android:title="@string/spinner"
                 android:icon="@drawable/ic_ui"/>
+
+            <item
+                android:id="@+id/viewPager"
+                android:title="@string/view_pager"
+                android:icon="@drawable/ic_ui"/>
         </menu>
     </item>
 

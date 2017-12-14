@@ -2,6 +2,7 @@ package np.cnblabs.accountdemo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,7 +46,7 @@ public class RecyclerActivity extends AppCompatActivity{
         mAdapter = new CustomRecyclerAdapter(movieList);
         recyclerView.setAdapter(mAdapter);
 
-        getMovieList();
+        movieList = getMovieList(movieList);
 
         mAdapter.setOnClick(new CustomRecyclerAdapter.onClickListener() {
             @Override
@@ -55,12 +56,26 @@ public class RecyclerActivity extends AppCompatActivity{
         });
     }
 
-    private void getMovieList() {
-        Movie movie = new Movie("Mad Max: Fury Road", "Action & Adventure", "2015");
+    public  static List<Movie> getMovieList(List<Movie> movieList) {
+        Movie movie = new Movie("Mad Max: Fury Road", "Action & Adventure", "2014");
         movieList.add(movie);
 
         movie = new Movie("Fury", "Action & Adventure", "2015");
         movieList.add(movie);
+
+        movie = new Movie("Fury", "Action & Adventure", "2016");
+        movieList.add(movie);
+
+        movie = new Movie("Fury", "Action & Adventure", "2017");
+        movieList.add(movie);
+
+        movie = new Movie("Fury", "Action & Adventure", "2018");
+        movieList.add(movie);
+
+        movie = new Movie("Fury", "Action & Adventure", "2019");
+        movieList.add(movie);
+
+        return movieList;
     }
 
     public void add(View view) {
@@ -70,6 +85,7 @@ public class RecyclerActivity extends AppCompatActivity{
             emptyLayout.setVisibility(View.GONE);
         }
         mAdapter.notifyItemInserted(movieList.size());
+        Snackbar.make(recyclerView, "List count = " + movieList.size(), Snackbar.LENGTH_SHORT).show();
     }
 
     public void remove(View view) {

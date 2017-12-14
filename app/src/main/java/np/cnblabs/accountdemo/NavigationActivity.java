@@ -11,13 +11,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 import np.cnblabs.accountdemo.realm.UserModelData;
+import np.cnblabs.accountdemo.utils.CircleTransform;
 
 public class NavigationActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,6 +50,11 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
 
         View header = navigationView.getHeaderView(0);
         userNameTV = header.findViewById(R.id.userNameTV);
+        ImageView userProfileIV = header.findViewById(R.id.userProfileIV);
+        Picasso.with(this)
+                .load(R.drawable.kp)
+                .transform(new CircleTransform())
+                .into(userProfileIV);
 
         if(userModelData == null || !userModelData.isValid()) {
             logout();
@@ -144,6 +153,10 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
 
             case R.id.picasso:
                 startActivity(this, PicassoImage.class);
+                break;
+
+            case R.id.viewPager:
+                startActivity(this, ViewPagerActivity.class);
                 break;
 
             case R.id.logout:
