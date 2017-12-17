@@ -162,6 +162,10 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
             case R.id.logout:
                 logout();
                 break;
+
+            case R.id.maps:
+                startActivity(this, MapsActivity.class);
+                break;
         }
 
         drawer.closeDrawer(GravityCompat.START);

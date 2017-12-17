@@ -3,7 +3,7 @@ apply plugin: 'realm-android'
 
 def ANDROID_SUPPORT_VER = "26.1.0"
 def BUTTER_KNIFE = "8.8.1"
-
+def GOOGLE_PLAY_SERVICES = "11.6.2"
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -30,6 +30,10 @@ dependencies {
 
     implementation "com.jakewharton:butterknife:$BUTTER_KNIFE"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    implementation "com.google.android.gms:play-services-maps:$GOOGLE_PLAY_SERVICES"
+    implementation "com.google.android.gms:play-services-location:$GOOGLE_PLAY_SERVICES"
+
     annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE"
 
     implementation 'com.google.code.gson:gson:2.8.2'

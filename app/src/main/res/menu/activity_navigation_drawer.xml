@@ -61,6 +61,12 @@
                 android:id="@+id/viewPager"
                 android:title="@string/view_pager"
                 android:icon="@drawable/ic_ui"/>
+
+            <item
+                android:id="@+id/maps"
+                android:title="@string/title_activity_maps"
+                android:icon="@drawable/ic_ui"
+                />
         </menu>
     </item>
 
