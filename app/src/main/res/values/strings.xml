@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">AccountDemo</string>
+    <string name="app_name">LFA</string>
     <string name="app_logo">app logo</string>
     <string name="email_id">Email Id</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="no_account_message">Don\'t have an account?</string>
-    <string name="signup">Signup</string>
+    <string name="signup">Sign Up</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="confirm_password">Confirm Password</string>
@@ -16,7 +16,7 @@
     <string name="empty_field">This field is required</string>
     <string name="select_gender">Select Gender</string>
     <string name="terms_must_message">Accepting terms and condition is must</string>
-    <string name="invalid_email">Invalid emal id</string>
+    <string name="invalid_email">Invalid email id</string>
     <string name="password_mismatch">Password Mis-match</string>
     <string name="listview">ListView</string>
     <string name="recycler_view">Recycler View</string>
@@ -50,4 +50,9 @@
     <string name="notification">Notification</string>
     <string name="dashboard">Dashboard</string>
     <string name="title_activity_maps">Location</string>
+    <string name="camera">Camera</string>
+    <string name="image">image</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="open_gallery">Open Gallery</string>
+    <string name="permission_required">This permission is required</string>
 </resources>

@@ -67,6 +67,11 @@
                 android:title="@string/title_activity_maps"
                 android:icon="@drawable/ic_ui"
                 />
+
+            <item
+                android:id="@+id/camera"
+                android:title="@string/camera"
+                android:icon="@drawable/ic_ui" />
         </menu>
     </item>
 

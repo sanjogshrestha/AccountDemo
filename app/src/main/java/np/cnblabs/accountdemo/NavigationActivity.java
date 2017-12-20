@@ -28,7 +28,6 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawer_layout) DrawerLayout drawer;
     @BindView(R.id.nav_view) NavigationView navigationView;
-    @BindView(R.id.simpleText) TextView simpleText;
 
     TextView userNameTV;
     Realm realm;
@@ -166,6 +165,10 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
 
             case R.id.maps:
                 startActivity(this, MapsActivity.class);
+                break;
+
+            case R.id.camera:
+                startActivity(this, CameraActivity.class);
                 break;
         }
 
