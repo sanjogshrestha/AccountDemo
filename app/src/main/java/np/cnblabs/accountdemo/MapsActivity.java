@@ -116,15 +116,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onComplete(@NonNull Task<Location> task) {
                         if(task.isSuccessful()){
                             mLastLocation = task.getResult();
-                            LatLng latLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-                            mMap.addMarker(new MarkerOptions()
-                                    .position(latLng)
-                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_map))
-                                    .title("You are here"));
+                            if(mLastLocation != null
+                                    && mLastLocation.getLatitude() != 0
+                                    && mLastLocation.getLongitude() != 0) {
+                                LatLng latLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+                                mMap.addMarker(new MarkerOptions()
+                                        .position(latLng)
+                                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_map))
+                                        .title("You are here"));
 
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18)); //18 is for indoor map
+                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18)); //18 is for indoor map
+                            }else{
+                                Toast.makeText(MapsActivity.this, "No location found", Toast.LENGTH_SHORT).show();
+                            }
                         }else{
-                            Toast.makeText(MapsActivity.this, "No location", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MapsActivity.this, "No location found", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
