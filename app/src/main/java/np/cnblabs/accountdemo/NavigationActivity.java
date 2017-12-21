@@ -1,6 +1,9 @@
 package np.cnblabs.accountdemo;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,7 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +34,8 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawer_layout) DrawerLayout drawer;
     @BindView(R.id.nav_view) NavigationView navigationView;
-
+    @BindView(R.id.webView) WebView webView;
+    @BindView(R.id.progressBar) ProgressBar progressBar;
     TextView userNameTV;
     Realm realm;
 
@@ -40,8 +47,38 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
         realm = DemoApplication.getDefaultRealm();
         setSupportActionBar(toolbar);
 
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("http://www.leapfrog.academy/");
         setUpNavigationHeader();
         setUpNavigationDrawer();
+    }
+
+    class WebViewClient extends android.webkit.WebViewClient{
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            progressBar.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+        }
+
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            view.loadUrl(String.valueOf(request.getUrl().toString()));
+            return true;
+        }
+
+        @TargetApi(Build.VERSION_CODES.KITKAT)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return super.shouldOverrideUrlLoading(view, url);
+        }
     }
 
     private void setUpNavigationHeader() {
