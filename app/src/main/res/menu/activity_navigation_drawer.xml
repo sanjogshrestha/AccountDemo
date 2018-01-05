@@ -36,6 +36,11 @@
                android:id="@+id/retrofit"
                android:icon="@drawable/ic_internet"
                android:title="@string/retrofit"/>
+
+            <item
+                android:id="@+id/linkify"
+                android:icon="@drawable/ic_internet"
+                android:title="@string/linkify"/>
         </menu>
     </item>
 

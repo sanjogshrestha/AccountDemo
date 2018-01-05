@@ -55,4 +55,6 @@
     <string name="open_camera">Open Camera</string>
     <string name="open_gallery">Open Gallery</string>
     <string name="permission_required">This permission is required</string>
+    <string name="linkify">Linkify</string>
+    <string name="long_text"><![CDATA[The Blockchain Applications Seminar will present an in-depth review of blockchain technology for non-technical persons: 1) To understand how blockchain works and 2) Learn how to use blockchain and distributed ledger technology to solve real-world problems.   The seminar will run as a two hour presentation with a Q&A and networking event following.   Cost:  A learning fee of $10 will be charged for admission. Registration in the Solidity Coding Bootcamp (https://www.facebook.com/events/1905999036330912/) waives this fee. ...   Please visit http://intellimatix.co/#training to sign-up for email alerts.]]></string>
 </resources>

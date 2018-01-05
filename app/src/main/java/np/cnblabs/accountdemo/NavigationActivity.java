@@ -49,6 +49,7 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
 
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("http://www.leapfrog.academy/");
+
         setUpNavigationHeader();
         setUpNavigationDrawer();
     }
@@ -206,6 +207,10 @@ public class NavigationActivity extends BaseActivity implements NavigationView.O
 
             case R.id.camera:
                 startActivity(this, CameraActivity.class);
+                break;
+
+            case R.id.linkify:
+                startActivity(this, LinkifyActivity.class);
                 break;
         }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dimens_16">
+
+    <TextView
+        android:id="@+id/linkifyTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/long_text"/>
+
+    <Button
+        android:id="@+id/phoneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_phone"
+        android:drawablePadding="@dimen/dimens_16"
+        android:text="++97716922971"
+        android:onClick="callPhone"/>
+
+    <Button
+        android:id="@+id/sendSmsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_sms"
+        android:drawablePadding="@dimen/dimens_16"
+        android:text="+97716922971"
+        android:onClick="sendSMS"/>
+
+</LinearLayout>
